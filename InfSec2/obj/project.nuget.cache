@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "taC/AunVbxcmJPNIfx0Dn6cNCrAWBJB+jgRa8lKSD4d/uAEjeUdsohIv/IU+ezXl6S49kttUAWGgDKM3uNt5bg==",
+  "dgSpecHash": "JtjUgFY+kdQuSBoRsFhYjueBQfH0CCRbOpQama9BpUbE95w9GlwRy55YDzr9oRlwDA2+ZTdiS4flifcOpBoWXA==",
   "success": true,
-  "projectFilePath": "/Users/leonid/RiderProjects/InfSec2/InfSec2/InfSec2.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Leonid\\RiderProjects\\InfSec2\\InfSec2\\InfSec2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Leonid\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Leonid\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Leonid\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Leonid\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
+  ],
   "logs": []
 }

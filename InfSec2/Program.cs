@@ -1,21 +1,57 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using System.Data.SqlTypes;
+using System.IO;
 using System.Text;
 
 namespace InfSec2
 {
+    
     class Program
     {
+        private static List<char> alphabet;
         
-        private const int UTF8Coef = 143; 
-        static ulong PowMod(ulong number, int power, int module)
+        private const int UTF8Coef = 143;
+        private static byte UTF8HelpingByte = 0;
+
+        static void GenerateAplhabet()
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+            alphabet = new List<char>();
+            for (int i = 0; i < 6; i++)
+            {
+                alphabet.Add((char) ('а'+ i));
+            }
+            alphabet.Add('ё');
+            for (int i = 8; i < 34; i++)
+            {
+                alphabet.Add((char)('а' + i - 2));
+            }
+            alphabet.Add(' ');
+            for (int i = 0; i < 10; i++)
+            {
+                alphabet.Add((char)('0' + i));
+            }
+        }
+
+        static int[] GetIntsFromChar(string text)
+        {
+            int[] arr = new int[text.Length];
+            for(int i = 0; i < text.Length; i++)
+            {
+                arr[i] = alphabet.IndexOf(text[i]);
+            }
+
+            return arr;
+        } 
+        static int PowMod(int number, int power, int module)
         {
             ulong ret = 1;
             for (int i = 0; i < power; i++)
             {
-                ret = (ret * number) % (ulong) module;
+                ret = (ret * (ulong) number) % (ulong) module;
             }
-            return ret;
+            return (int)ret;
         }
         static bool CheckIfNumIsPrime(int number)
         {
@@ -62,7 +98,7 @@ namespace InfSec2
                 p = PrimeNumberGenerator(20);
                 q = PrimeNumberGenerator(20);
                 N = p * q;
-            } while (N <= 45);
+            } while (N <= 45 || N >= 350);
 
             return (N, p, q);
         }
@@ -75,20 +111,20 @@ namespace InfSec2
 
         static int SolveD(int phi, int e)
         {
-            decimal d;
+            double d;
             int k = 1;
             do
             {
-                d = (decimal)(k * phi + 1) / e;
+                d = (double)(k * phi + 1) / e;
                 k++;
-            } while (d % 1 != 0);
+            } while (d != (int) d);
 
             return (int) d;
         }
 
-        static ulong[] EncryptDecrypt(int e, int n, ulong[] text)
+        static int[] EncryptDecrypt(int e, int n, int[] text)
         {
-            ulong[] encryptedText = new ulong[text.Length];
+            int[] encryptedText = new int[text.Length];
             
             for (int i = 0; i < text.Length; i++)
             {
@@ -99,8 +135,9 @@ namespace InfSec2
 
         static void Main(string[] args)
         {
-            Console.Write(Encoding.UTF8.GetChars(new byte[] {208, BitConverter.GetBytes(7 + UTF8Coef)[0]})[0] + "\n");
-            return;
+            GenerateAplhabet();
+            string inputText = "кафси";
+            int[] inputNums = GetIntsFromChar(inputText);
             int n, p, q, phi, d;
             (n, p, q) = NGenerator();
             phi = EulerFunction(p, q);
@@ -114,29 +151,18 @@ namespace InfSec2
             Console.WriteLine("Open key: " + (e, n));
             d = SolveD(phi, e);
             Console.WriteLine("Closed key: " + (d, n));
-            ulong[] arr = EncryptDecrypt(5, 91, new ulong[] {12, 1, 22, 19, 10});
-            foreach (var var in arr)
+            int[] arr = EncryptDecrypt(e, n, inputNums);
+            Console.Write("Encrypted: ");
+            foreach (var num in arr)
             {
-                Console.Write(var + " ");
+                Console.Write(num + " ");
             }
 
-            Console.WriteLine("\n\n");
-            ulong[] arr2 = EncryptDecrypt(29, 91, arr);
-            var i = 1;
-            foreach (ulong var in arr2)
-            { 
-                
-                //Console.WriteLine(var + UTF8Coef);
-                if (var + UTF8Coef == 150)
-                {
-                    Console.Write(Encoding.UTF8.GetChars(new byte[] {208, 129}));
-                }
-                else
-                {
-                    Console.Write(Encoding.UTF8.GetChars(new byte[] {208, BitConverter.GetBytes(2 + UTF8Coef)[0]})[0] + "\n");
-                    
-                }
-                i += 2;
+            Console.Write("\n\n");
+            int[] arr2 = EncryptDecrypt(d, n, arr);
+            foreach (var num in arr2)
+            {
+                Console.WriteLine(num + 1 + " " + alphabet[num]);
             }
         }
     }
