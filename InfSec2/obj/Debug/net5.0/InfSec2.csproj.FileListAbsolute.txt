@@ -1,0 +1,15 @@
+/Users/leonid/RiderProjects/InfSec2/InfSec2/bin/Debug/net5.0/InfSec2.deps.json
+/Users/leonid/RiderProjects/InfSec2/InfSec2/bin/Debug/net5.0/InfSec2.runtimeconfig.json
+/Users/leonid/RiderProjects/InfSec2/InfSec2/bin/Debug/net5.0/InfSec2.runtimeconfig.dev.json
+/Users/leonid/RiderProjects/InfSec2/InfSec2/bin/Debug/net5.0/InfSec2.dll
+/Users/leonid/RiderProjects/InfSec2/InfSec2/bin/Debug/net5.0/ref/InfSec2.dll
+/Users/leonid/RiderProjects/InfSec2/InfSec2/bin/Debug/net5.0/InfSec2.pdb
+/Users/leonid/RiderProjects/InfSec2/InfSec2/obj/Debug/net5.0/InfSec2.csprojAssemblyReference.cache
+/Users/leonid/RiderProjects/InfSec2/InfSec2/obj/Debug/net5.0/InfSec2.GeneratedMSBuildEditorConfig.editorconfig
+/Users/leonid/RiderProjects/InfSec2/InfSec2/obj/Debug/net5.0/InfSec2.AssemblyInfoInputs.cache
+/Users/leonid/RiderProjects/InfSec2/InfSec2/obj/Debug/net5.0/InfSec2.AssemblyInfo.cs
+/Users/leonid/RiderProjects/InfSec2/InfSec2/obj/Debug/net5.0/InfSec2.csproj.CoreCompileInputs.cache
+/Users/leonid/RiderProjects/InfSec2/InfSec2/obj/Debug/net5.0/InfSec2.dll
+/Users/leonid/RiderProjects/InfSec2/InfSec2/obj/Debug/net5.0/ref/InfSec2.dll
+/Users/leonid/RiderProjects/InfSec2/InfSec2/obj/Debug/net5.0/InfSec2.pdb
+/Users/leonid/RiderProjects/InfSec2/InfSec2/obj/Debug/net5.0/InfSec2.genruntimeconfig.cache
