@@ -36,6 +36,7 @@ namespace InfSec2
 
         static int[] GetIntsFromChar(string text)
         {
+            text = text.ToLower();
             int[] arr = new int[text.Length];
             for(int i = 0; i < text.Length; i++)
             {
@@ -117,7 +118,7 @@ namespace InfSec2
             {
                 d = (double)(k * phi + 1) / e;
                 k++;
-            } while (d%1!=0);
+            } while (d%1!=0 || (int)d == e);
 
             return (int) d;
         }
@@ -136,7 +137,7 @@ namespace InfSec2
         static void Main(string[] args)
         {
             GenerateAplhabet();
-            string inputText = "кафси";
+            string inputText = "Шифруем что то очень странное";
             int[] inputNums = GetIntsFromChar(inputText);
             int n, p, q, phi, d;
             (n, p, q) = NGenerator();
@@ -160,9 +161,15 @@ namespace InfSec2
 
             Console.Write("\n\n");
             int[] arr2 = EncryptDecrypt(d, n, arr);
+            Console.Write("Decrypted: ");
             foreach (var num in arr2)
             {
-                Console.WriteLine(num + 1 + " " + alphabet[num]);
+                Console.Write(num + " ");
+            }
+            Console.Write("\n\n");
+            foreach (var num in arr2)
+            {
+                Console.Write(alphabet[num] + " ");
             }
         }
     }
