@@ -112,12 +112,12 @@ namespace InfSec2
         static int SolveD(int phi, int e)
         {
             double d;
-            int k = 1;
+            uint k = 1;
             do
             {
                 d = (double)(k * phi + 1) / e;
                 k++;
-            } while (d != (int) d);
+            } while (d%1!=0);
 
             return (int) d;
         }
