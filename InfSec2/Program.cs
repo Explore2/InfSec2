@@ -147,7 +147,7 @@ namespace InfSec2
             do
             {
                 e = random.Next(0, n);
-            } while (GreatestCommonDivisor(e, n) != 1);
+            } while (GreatestCommonDivisor(e, phi) != 1);
 
             Console.WriteLine("Open key: " + (e, n));
             d = SolveD(phi, e);
